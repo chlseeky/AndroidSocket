@@ -1,6 +1,6 @@
 # AndroidSocket
 
-使用时定义类继承SocketClient，例如：
+To define a class to inherit SocketClient, for example:
 
 public class SubSocketClient extends SocketClient {
 
@@ -17,14 +17,14 @@ public class SubSocketClient extends SocketClient {
         registerSocketClientDelegate(new SocketClientDelegate() {
             @Override
             public void onConnected(SocketClient client) {
-                LogUtils.e("连接：", "SubSocketClient Local onConnected "+ client.getAddress().getRemotePort()+" "+client.getAddress().getRemoteIP());
+                LogUtils.e("onConnected", "SubSocketClient Local onConnected "+ client.getAddress().getRemotePort()+" "+client.getAddress().getRemoteIP());
 
                 doReLogin();
             }
 
             @Override
             public void onDisconnected(SocketClient client) {
-                LogUtils.e("断开", "SubSocketClient Local onDisconnected");
+                LogUtils.e("onDisconnected", "SubSocketClient Local onDisconnected");
 
                 if(!isHandleDisconnect){
                     connect();
@@ -78,7 +78,7 @@ public class SubSocketClient extends SocketClient {
         });
     }
 
-    //处理服务器传给客户端的数据
+    //Process the data that the server sends to the client
     public void OnSubClientMsg(byte[] buf) {
         
     }
